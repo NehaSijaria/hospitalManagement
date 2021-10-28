@@ -1,6 +1,6 @@
 # hospitalManagement
 
-Hospital Information Management System - Supports most of the standard HIMS functionalities:
+Hospital Management - Supports most of the standard HMS functionalities:
 
 * Staff Management
 * Appointment Management
