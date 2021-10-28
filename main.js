@@ -2,7 +2,7 @@ var express = require('express');
 var session = require('express-session');
 var path = require('path');
 var login = require('./controllers/login_controller');
-
+var manager = require('./controllers/manager_controller');
 var app = express();
 var expressValidator = require('express-validator');
 var flash = require('connect-flash');
@@ -54,7 +54,7 @@ app.use(flash());
 
 
 login(app);
-
+manager(app);
 
 function ensureAuthenticated(req, res, next){
 		if(req.isAuthenticated()){
