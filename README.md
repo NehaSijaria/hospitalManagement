@@ -1,6 +1,6 @@
 # hospitalManagement
 
-Hospital Management - It will supports most of the standard functionalities:
+Hospital Management - It will supports most of the standard functionalities
 
 * Staff Management
 * Appointment Management
@@ -25,7 +25,7 @@ Hospital Management - It will supports most of the standard functionalities:
 
 # INSTALL
 
-* git clone git@github.com:sowjanyamaisagonihospitalManagement.git
+*[Link to github] https://github.com/sowjanyamaisagoni/hospitalManagement
 
 * `cd hospitalManagement`
 
