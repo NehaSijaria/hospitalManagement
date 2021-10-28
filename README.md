@@ -1,6 +1,6 @@
 # hospitalManagement
 
-Hospital Management - Supports most of the standard HMS functionalities:
+Hospital Management - It will supports most of the standard functionalities:
 
 * Staff Management
 * Appointment Management
