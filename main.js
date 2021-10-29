@@ -16,6 +16,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var cookieParser = require('cookie-parser');
 var expressValidator = require('express-validator');
 
+var landing = require('./controllers/landing_controller.js');
 
 
 // set up template engine
@@ -56,7 +57,7 @@ app.use(flash());
 
 // fire controllers
 
-
+landing(app);
 login(app);
 manager(app);
 mstaff(app);
