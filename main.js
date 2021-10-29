@@ -5,6 +5,7 @@ var login = require('./controllers/login_controller');
 var manager = require('./controllers/manager_controller');
 
 
+var nurse = require('./controllers/nurse_controller.js');
 var doctor = require('./controllers/doc_controller.js');
 var app = express();
 var expressValidator = require('express-validator');
@@ -58,6 +59,7 @@ app.use(flash());
 
 login(app);
 manager(app);
+nurse(app);
 doctor(app);
 
 function ensureAuthenticated(req, res, next){
