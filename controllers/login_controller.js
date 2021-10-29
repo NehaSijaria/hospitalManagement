@@ -10,7 +10,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 module.exports = function (app) {
 
 	app.get('/login', function (req, res) {
-	
+		//console.log('GET LOGIN');
 		res.render('login.ejs', { error: null });
 	});
 
@@ -22,7 +22,8 @@ module.exports = function (app) {
 					return done(null, false, { message: 'Invalid Credentials! Please try again.' });
 				}
 				else {
-			
+					//bcrypt.compare(password, user[0].password, function (err, res) {
+						//if (err) return done(err);
 					console.log("+password" + password);
           console.log("pwd.user0" + user[0].password);
           console.log(password == user[0].password);
@@ -86,7 +87,31 @@ module.exports = function (app) {
 		})(req, res);
 
 	});
-	
+	/* 
+		var username = req.body.username;
+	var password = req.body.password;
+	User.checkUser(username, password, function(err, result){
+		if(err) throw err;
+		if(!result){
+			res.render('login.ejs', {error: '1'});
+		}
+		else{
+			var type = result.type;
+			if(type == '1'){
+				res.redirect('/manager');
+			}
+			else if(type == '2'){
+				res.redirect('/receptionist');
+			}
+			else if(type == '3'){
+				res.redirect('/doctor');
+			}
+			else if(type == '4'){
+				res.redirect('/mstaff');
+			}
+		}
+	});
+	*/
 
 	app.post('/reset', urlencodedParser, function (req, res) {
 		const { userid } = req.body;

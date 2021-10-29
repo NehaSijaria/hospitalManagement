@@ -73,7 +73,25 @@ module.exports = function (resetSystem) {
   clearTable("room");
   clearTable("server");
   addServer();
-
+//   insertState("Bangalore", "Karnataka", function () {
+//     insertEmployee(
+//       1000,
+//       "Admin",
+//       "male",
+//       0.0,
+//       "Manager",
+//       1234567890,
+//       adminDetails.emailId,
+//       "Somewhere on Earth",
+//       "Bangalore",
+//       function () {
+//         const pass = adminDetails.password;
+//         bcrypt.hash(pass, 10, function (err, hash) {
+//           insertLogin(1000, hash);
+//         });
+//       }
+//     );
+//   });
 }
 
 const clearTable = function(tableName){
