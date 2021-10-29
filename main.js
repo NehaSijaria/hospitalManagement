@@ -4,7 +4,7 @@ var path = require('path');
 var login = require('./controllers/login_controller');
 var manager = require('./controllers/manager_controller');
 var mstaff = require('./controllers/mstaff_controller');
-
+var rec = require('./controllers/rec_controller');
 var nurse = require('./controllers/nurse_controller.js');
 var doctor = require('./controllers/doc_controller.js');
 var app = express();
@@ -60,7 +60,7 @@ app.use(flash());
 login(app);
 manager(app);
 mstaff(app);
-
+rec(app);
 nurse(app);
 doctor(app);
 
