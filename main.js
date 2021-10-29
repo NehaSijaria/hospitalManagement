@@ -3,7 +3,7 @@ var session = require('express-session');
 var path = require('path');
 var login = require('./controllers/login_controller');
 var manager = require('./controllers/manager_controller');
-
+var mstaff = require('./controllers/mstaff_controller');
 
 var nurse = require('./controllers/nurse_controller.js');
 var doctor = require('./controllers/doc_controller.js');
@@ -59,6 +59,8 @@ app.use(flash());
 
 login(app);
 manager(app);
+mstaff(app);
+
 nurse(app);
 doctor(app);
 
