@@ -16,8 +16,8 @@ con.connect(function(err){
 
 // DO NOT REMOVE THE SINGLE QUOTES
 const emailServerDetails = {
-	emailId: 'maisagoni@gmail.com',
-	pass: 'S@chin10',
+	emailId: 'test@test1',
+	pass: '1111',
 	proxy: '<PROXY: PORT>',
 	// if not using any proxy, let proxy be empty string -> proxy: ''
 }
