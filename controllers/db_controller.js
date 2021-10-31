@@ -24,8 +24,8 @@ const emailServerDetails = {
 
 // DO NOT REMOVE THE SINGLE QUOTES
 const adminDetails = {
-	emailId: 'maisagoni@gmail.com',
-	password: 'S@chin20'
+	emailId: 'test@gmail.com',
+	password: '1111'
 }
 
 // set to true if installing for first time or to clear database
@@ -56,48 +56,93 @@ module.exports = function (app) {
 	module.exports.deleteRecord(today);
 }
 
-module.exports = function (resetSystem) {
-  //delete data from all tables
-  clearTable("city_state");
-  clearTable("complain");
-  clearTable("curr");
-  //clearTable("doctor");
-  //clearTable("employee");
-  clearTable("employee_contact");
-  clearTable("employee_email");
-  clearTable("hardware");
-  //clearTable("login");
-  clearTable("nurse");
-  clearTable("patient");
-  clearTable("record");
-  clearTable("room");
-  clearTable("server");
-  addServer();
-//   insertState("Bangalore", "Karnataka", function () {
-//     insertEmployee(
-//       1000,
-//       "Admin",
-//       "male",
-//       0.0,
-//       "Manager",
-//       1234567890,
-//       adminDetails.emailId,
-//       "Somewhere on Earth",
-//       "Bangalore",
-//       function () {
-//         const pass = adminDetails.password;
-//         bcrypt.hash(pass, 10, function (err, hash) {
-//           insertLogin(1000, hash);
-//         });
-//       }
-//     );
-//   });
-}
+const resetSystem = function () {
+	//delete data from all tables
+	clearTable("city_state");
+	clearTable("complain");
+	clearTable("curr");
+	clearTable("employee");
+	clearTable("employee_contact");
+	clearTable("employee_email");
+	clearTable("hardware");
+	clearTable("login");
+	clearTable("nurse");
+	clearTable("patient");
+	clearTable("record");
+	clearTable("doctor");
+	clearTable("room");
+	clearTable("server");
+	addServer();
+	  insertState1("Bangalore", "Karnataka", function () {
+	    insertEmployee1(
+	      1002,
+	      "Admin",
+	      "male",
+	      0.0,
+	      "Manager",
+	      1234567890,
+	      adminDetails.emailId,
+	      "Somewhere on Earth",
+	      "Bangalore",
+	      function () {
+	        const pass = adminDetails.password;
+	        bcrypt.hash(pass, 10, function (err, hash) {
+	          insertLogin1(1002, hash);
+	        });
+	      }
+	    );
+	  });
+};
 
 const clearTable = function(tableName){
 	const query = "DELETE FROM " + tableName + ";";
 	con.query(query);
 }
+
+const insertLogin1 = function(userid, pass, callback){
+	const query = "INSERT INTO login VALUES("+userid+", '"+pass+"');"
+				con.query(query, callback);
+			}
+
+const insertState1 = function(city, state, callback){
+	const query = "INSERT IGNORE INTO city_state VALUES('" + city + "', '" + state + "');";
+				con.query(query, callback);
+			}
+			
+const insertEmployee1 = function (
+  userid,
+  name,
+  sex,
+  salary,
+  type,
+  contact,
+  email,
+  address,
+  city,
+  callback
+) {
+  const query =
+    "INSERT INTO employee VALUES(" +
+    userid +
+    ", '" +
+    name +
+    "', '" +
+    sex +
+    "', " +
+    salary +
+    ", '" +
+    type +
+    "', " +
+    contact +
+    ", '" +
+    email +
+    "', '" +
+    address +
+    "', '" +
+    city +
+    "');";
+  con.query(query, callback);
+};
 
 const addServer = function(){
 	let serverProxy;

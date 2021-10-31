@@ -22,16 +22,13 @@
 function hideURLbar(){ window.scrollTo(0,1); } </script>
   <!--   <script src="/js/manager_dashboard.js"></script>   -->
   <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
-  <link rel="stylesheet" href="/css/dropdown_style.css">
-  <!-- Page level plugin CSS-->
-  <link href="/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="http://localhost:3000/mstaff">Hi MStaff </a>
+    <a class="navbar-brand" href="http://localhost:3000/mstaff">Hi MStaff</a>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
@@ -68,122 +65,65 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
         <li class="breadcrumb-item">
           <a href="http://localhost:3000/manager">Maintenance Staff</a>
         </li>
-        <li class="breadcrumb-item active">Hardware List</li>
+        <li class="breadcrumb-item active">Account Settings</li>
       </ol>
-      <!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Hardware List
+      
+        <div class="agile-header">
+              <h1>MAINTENANCE STAFF ACCOUNT DETAILS</h1>
+    
         </div>
-        <div class="card-body">
-          <div class="table-responsive">
+  <!--//header-->
+  <!--main-->
+    <ul class="list-group" style="width: 75%; font-size: 20px;">
+        <li class="list-group-item">Name : <label class="ddata"> <%= data.name %> </label></li>
+        <li class="list-group-item">User ID : <label class="ddata"> <%= data.id %> </label></li>
+        <li class="list-group-item">Primary E-Mail : <label class="ddata"> <%= data.email %> </label></li>
+        <li class="list-group-item">Contact : <label class="ddata"> <%= data.contact %> </label></li>
+        <li class="list-group-item">Gender : <label class="ddata"> <%= data.sex %> </label></li>
+        <li class="list-group-item">Income : <label class="ddata"> CAD <%= data.salary %> </label></li>
+        <li class="list-group-item">Address : <label class="ddata"> <%= data.address %> </label></li>
+        <li class="list-group-item">City : <label class="ddata"> <%= data.city %> </label></li>
+        <li class="list-group-item">State : <label class="ddata"> <%= state %> </label></li>
+        <% if(amail){ %>
+            <li class="list-group-item">Alternate E-mail : <label class="ddata"> <%= amail %> </label></li>
+        <% } %>
+        <% if(acontact){ %>
+            <li class="list-group-item">Alternate Contact : <label class="ddata"> <%= acontact %> </label></li>
+        <% } %>
+    </ul>
 
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-              <thead>
-                <tr style="font-weight: bold;">
-                  <th>Hardware Model</th>
-                  <th>Hardware Type</th>
-                  <th>Quantity</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr style="font-weight: bold;">
-                  <th>Hardware Model</th>
-                  <th>Hardware Type</th>
-                  <th>Quantity</th>
-                </tr>
-              </tfoot>
-              <tbody>
-                <% for(var i = 0; i < list.length; i++){ %>
-                    <tr>
-                      <td><%= list[i].model %></td>
-                      <td><%= list[i].type %></td>
-                      <td><%= list[i].quantity %></td>
-                    </tr>
-                <% } %>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
+      
     </div>
 
     <div style="margin-top: 30px" class="agile-header">
-    <h1 style="font-size: 38px">ADD NEW HARDWARE</h1>
-    <p>Please make sure to enter accurate details.</p>
+    <h1 style="font-size: 38px">CHANGE PASSWORD</h1>
+    <p>Please choose a strong password for better security of your account.</p>
     <div class="agileits-main">
-      <div class="wrap">
-    <form action="http://localhost:3000/mstaff/hardware/add" style="width: 30%; margin-left: 325px;" method="post">
+    <div class="wrap">
+    <form style="width: 50%; margin-left: 250px;" method="post">
   <div class="form-group">
-    <label for="exampleInput">Hardware Model</label>
-    <input name="model" type="text" placeholder="Model" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+    <label for="exampleInput">Current Password</label>
+    <input name="cpass" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
   </div>
   <div class="form-group">
-    <label for="exampleInput">Hardware Type</label>
-    <input name="type" type="text" placeholder="Type" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+    <label for="exampleInput">New Password</label>
+    <input name="npass" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
   </div>
   <div class="form-group">
-    <label for="exampleInput">Quantity</label>
-    <input name="quantity" type="number" min="1" placeholder="1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+    <label for="exampleInput">Confirm New Password</label>
+    <input name="cnpass" type="password" class="form-control" id="exampleInputPassword1" required>
   </div>
-  <button type="submit" class="btn btn-primary">ADD</button>
+  <button type="submit" class="btn btn-primary">Change</button>
     </form>
-    <% if(details == '3'){ %>
-      <label style="color: red;">HARDWARE MODEL ALREADY EXISTS. PLEASE MODIFY ITS DETAILS.</label>
+    <% if(error == '1'){ %>
+      <p style="margin-left: 30px; color: red;">Please Try Again</p>
     <% } %>
-    <% if(details == '4'){ %>
-      <label style="color: red;">HARDWARE INSERTED SUCCESSFULLY</label>
+    <% if(error == '2'){ %>
+      <p style="margin-left: 30px; color: green;">Password Changed</p>
     <% } %>
-    
-    </div> 
+    </div>  
   </div>
-  </div>
-
-    <div style="margin-top: 0px" class="agile-header">
-    <h1 style="font-size: 38px">MODIFY HARDWARE DETAILS</h1>
-    <p>Please make sure to enter accurate details. Setting quantity to 0 would erase the hardware from the list.</p>
-    <div class="agileits-main">
-    <% if(details == '0' || details == '-1' || details == '2' || details == '3' || details == '4'){ %>
-      <div class="wrap">
-    <form action="http://localhost:3000/mstaff/hardware/details" style="width: 30%; margin-left: 325px;" method="post">
-  <div class="form-group">
-    <label for="exampleInput">Hardware Model</label>
-    <input name="model" type="text" placeholder="Model" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-  </div>
-  <button type="submit" class="btn btn-primary">View Details</button>
-    </form>
-    <% if(details == '-1'){ %>
-      <label style="color: red;">HARDWARE MODEL DOES NOT EXISTS. PLEASE ADD IT BEFORE MODIFYING.</label>
-    <% } %>
-    <% if(details == '2'){ %>
-      <label style="color: green;">HARDWARE DETAILS CHANGED</label>
-    <% } %>
-    </div> 
-    <% } %>
-  </div>
-
-    <% if(details == '1'){ %>
-
-      <div class="agileits-main">
-      <div class="wrap">
-    <form action="http://localhost:3000/mstaff/hardware/save" style="width: 30%; margin-left: 325px;" method="post">
-  <div class="form-group">
-    <label for="exampleInput">Hardware Model</label>
-    <input name="model" type="text" value="<%= hmodel %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
-  </div>
-  <div class="form-group">
-    <label for="exampleInput">Quantity</label>
-    <input name="quantity" type="number" value="<%= qty %>" min="0" placeholder="Model" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-  </div>
-  <button type="submit" class="btn btn-primary">SAVE</button>
-    </form>
-    </div> 
-  </div>
-
-    <% } %>
-
   </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -229,8 +169,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Custom scripts for this page-->
     <script src="/js/sb-admin-datatables.min.js"></script>
     <script src="/js/dropdown_script.js"></script>
-
-
   </div>
 </body>
 

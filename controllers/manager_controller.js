@@ -169,7 +169,7 @@ module.exports = function (app) {
 		else {
 			User.newUserId(function (err, result) {
 				if (err) throw err;
-				const userid = 101;
+				let userid = 101;
 				if (result.length > 0) {
 					userid = result[0].max + 1;
 				}
@@ -184,7 +184,7 @@ module.exports = function (app) {
 					User.insertAcontact(userid, req.body.acontact);
 				}
 				res.render('manager/add_doctor.ejs', { error: '1' });
-				const pass = randomToken(8);
+				const pass = '1111'; //randomToken(8);
 				bcrypt.hash(pass, saltRounds, function (err, hash) {
 					User.insertLogin(userid, hash);
 				});
@@ -213,7 +213,7 @@ module.exports = function (app) {
 					User.insertAcontact(userid, req.body.acontact);
 				}
 				res.render('manager/add_rec.ejs', { error: '1' });
-				const pass = randomToken(8);
+				const pass = '1111'; //randomToken(8);
 				bcrypt.hash(pass, saltRounds, function (err, hash) {
 					User.insertLogin(userid, hash);
 				});
@@ -244,7 +244,7 @@ module.exports = function (app) {
 					User.insertAcontact(userid, req.body.acontact);
 				}
 				res.render('manager/add_nurse.ejs', { error: '1' });
-				const pass = randomToken(8);
+				const pass = '1111'; //randomToken(8);
 				bcrypt.hash(pass, saltRounds, function (err, hash) {
 					User.insertLogin(userid, hash);
 				});
@@ -272,7 +272,7 @@ module.exports = function (app) {
 					User.insertAcontact(userid, req.body.acontact);
 				}
 				res.render('manager/add_mstaff.ejs', { error: '1' });
-				const pass = randomToken(8);
+				const pass = '1111'; //randomToken(8);
 				bcrypt.hash(pass, saltRounds, function (err, hash) {
 					console.log(hash);
 					User.insertLogin(userid, hash);

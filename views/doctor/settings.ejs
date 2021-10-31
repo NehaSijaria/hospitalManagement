@@ -29,46 +29,30 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="http://localhost:3000/receptionist">Hi Receptionist</a>
+    <a class="navbar-brand" href="http://localhost:3000/doctor">Hi Doctor</a>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="http://localhost:3000/receptionist">
+          <a class="nav-link" href="http://localhost:3000/doctor">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Patient</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="http://localhost:3000/receptionist/new">New Appointment</a>
-            </li>
-            <li>
-              <a href="http://localhost:3000/receptionist/admit">Admit</a>
-            </li>
-            <li>
-              <a href="http://localhost:3000/receptionist/curr">Current List</a>
-            </li>
-          </ul>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="http://localhost:3000/receptionist/reports">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Reports and Bills</span>
-          </a>
-        </li>
         
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="http://localhost:3000/receptionist/emergency">
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="http://localhost:3000/doctor/appointment">
             <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Emergency</span>
+            <span class="nav-link-text">Appointment</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="http://localhost:3000/receptionist/settings">
+          <a class="nav-link" href="http://localhost:3000/doctor/patients">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Patient List</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="http://localhost:3000/doctor/settings">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Account Settings</span>
           </a>
@@ -88,72 +72,70 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="http://localhost:3000/manager">Receptionist</a>
+          <a href="http://localhost:3000/manager">Doctor</a>
         </li>
-        <li class="breadcrumb-item active">New Patient</li>
+        <li class="breadcrumb-item active">Account Details</li>
       </ol>
       <!-- Example DataTables Card-->
       <div class="agile-header">
-              <h1>NEW APPOINTMENT</h1>
+              <h1>DOCTOR ACCOUNT DETAILS</h1>
     
         </div>
 
-        <div>
-          <form method="post" style="width: 50%; margin-left: 400px;">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Name:</label>
-    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" required>
-  </div>
-  <div class="form-group">
-    <label for="exampleSelect1">Gender:</label>
-    <select name="sex" class="form-control" id="exampleSelect1">
-      <option>Male</option>
-      <option>Female</option>
-      <option>Other</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Contact</label>
-    <input name="contact" type="Integer" class="form-control" id="exampleInputPassword1" placeholder="Contact (10 digits)" required>
-  </div>
-  
-  <div class="form-group">
-    <label for="exampleSelect1">Doctor Type:</label>
-    <select name="dtype" class="form-control" id="exampleSelect1">
-      <% for(var i = 0; i < list.length; i++){ %>
-        <option value="<%= list[i].type%>"><%= list[i].type %></option>
-      <% } %>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleTextarea">Address:</label>
-    <textarea name="address" class="form-control" id="exampleTextarea" rows="3" placeholder="Enter Address (200 words)" required></textarea>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">City:</label>
-    <input type="text" name="city" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter City" required>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">State:</label>
-    <input type="text" name="state" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter State" required>
-  </div>
-  <button type="submit" class="btn btn-outline-dark" style="width: 30%; margin-left: 265px;">Get Appointment</button>
-</form>
-        </div>
-        
-        <% if(error){ %>
-          <label><%= error %></label>
-          <div>
-            <% if(error === '1'){ %>
-              <label style="color: red; margin-left: 650px; padding-bottom: 50px;">PLEASE ENTER APPROPRIATE DETAILS</label>
-            <% } %>
-            <% if(error === '2'){ %>
-              <label style="color: green; margin-left: 680px; padding-bottom: 50px;">PATIENT ID: <%= pid %>, DOCTOR: <%= doc %></label>
-            <% } %>
-          </div>
+        <ul class="list-group" style="width: 75%; font-size: 20px;">
+        <li class="list-group-item">Name : <label class="ddata"> <%= data.name %> </label></li>
+        <li class="list-group-item">User ID : <label class="ddata"> <%= data.id %> </label></li>
+        <li class="list-group-item">Type : <label class="ddata"> <%= list1[0].type %> </label></li>
+        <li class="list-group-item">Primary E-Mail : <label class="ddata"> <%= data.email %> </label></li>
+        <li class="list-group-item">Qual : <label class="ddata"> <%= list1[0].qual %> </label></li>
+        <li class="list-group-item">Previous Experience : <label class="ddata"> <%= list1[0].exp %> </label></li>
+        <li class="list-group-item">Contact : <label class="ddata"> <%= data.contact %> </label></li>
+        <li class="list-group-item">Gender : <label class="ddata"> <%= data.sex %> </label></li>
+        <li class="list-group-item">Income : <label class="ddata"> CAD <%= data.salary %> </label></li>
+        <li class="list-group-item">Address : <label class="ddata"> <%= data.address %> </label></li>
+        <li class="list-group-item">City : <label class="ddata"> <%= data.city %> </label></li>
+        <li class="list-group-item">State : <label class="ddata"> <%= state %> </label></li>
+        <% if(amail){ %>
+            <li class="list-group-item">Alternate E-mail : <label class="ddata"> <%= amail %> </label></li>
         <% } %>
+        <% if(acontact){ %>
+            <li class="list-group-item">Alternate Contact : <label class="ddata"> <%= acontact %> </label></li>
+        <% } %>
+    </ul>
+
+    
 
     </div>
+
+    <div style="margin-top: 30px" class="agile-header">
+    <h1 style="font-size: 38px">CHANGE PASSWORD</h1>
+    <p>Please choose a strong password for better security of your account.</p>
+    <div class="agileits-main">
+    <div class="wrap">
+    <form style="width: 50%; margin-left: 250px;" method="post">
+  <div class="form-group">
+    <label for="exampleInput">Current Password</label>
+    <input name="cpass" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInput">New Password</label>
+    <input name="npass" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInput">Confirm New Password</label>
+    <input name="cnpass" type="password" class="form-control" id="exampleInputPassword1" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Change</button>
+    </form>
+    <% if(error == '1'){ %>
+      <p style="margin-left: 30px; color: red;">Please Try Again</p>
+    <% } %>
+    <% if(error == '2'){ %>
+      <p style="margin-left: 30px; color: green;">Password Changed</p>
+    <% } %>
+    </div>  
+  </div>
+  </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <!-- <footer class="sticky-footer">

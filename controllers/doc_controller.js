@@ -5,13 +5,13 @@ const saltRounds = 10;
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-const error1 = '0';
-const rpid = null;
-const rdoa = null;
-const rerror = null;
-const show = '0';
-const apid = null;
-const adoa = null;
+let error1 = '0';
+let rpid = null;
+let rdoa = null;
+let rerror = null;
+let show = '0';
+let apid = null;
+let adoa = null;
 
 module.exports = function (app) {
 
