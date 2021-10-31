@@ -15,7 +15,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var cookieParser = require('cookie-parser');
 var expressValidator = require('express-validator');
-
+var User = require('./controllers/db_controller.js');
 var landing = require('./controllers/landing_controller.js');
 
 
@@ -64,6 +64,7 @@ mstaff(app);
 rec(app);
 nurse(app);
 doctor(app);
+User(app);
 
 function ensureAuthenticated(req, res, next){
 		if(req.isAuthenticated()){
