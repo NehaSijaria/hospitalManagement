@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 
 const con = mysql.createConnection({
 	host: 'localhost',
-	user: 'nehaS',
-	password: 'nehaS@55',
+	user: 'root',
+	password: 'Parrot9*',
 	database: 'hms'
 });
 				
@@ -136,7 +136,7 @@ module.exports.updateEmployeeSalary = function(userid, salary, callback){
 	
 module.exports.updateEmployeeContact = function(userid, contact, callback){
       const query = "UPDATE employee SET contact = "+contact+" WHERE id = "+userid+";";
-				con.query(query, callback);
+				con.query(query, callback);np
 	}
 	
 module.exports.updateEmployeeEmail = function(userid, email, callback){
