@@ -15,12 +15,12 @@ module.exports = function (app) {
 	});
 
 	app.post('/complain', urlencodedParser, function (req, res) {
-		const d = new Date();
-		const y = d.getFullYear();
-		const m = d.getMonth() + 1;
-		const date = d.getDate();
-		const today = y + "-" + m + "-" + date;
-		const id = '100';
+		let d = new Date();
+		let y = d.getFullYear();
+		let m = d.getMonth() + 1;
+		let date = d.getDate();
+		let today = y + "-" + m + "-" + date;
+		let id = '100';
 		User.getComplaintId(today, function (err, result) {
 			console.log(result);
 			if (result[0].id != null) {
