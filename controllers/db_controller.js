@@ -6,11 +6,8 @@ const bcrypt = require('bcrypt');
 const con = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: 'Parrot9*',
-
-	
-	database: 'hims'
-
+	password: 'nehaS@555',
+  database: 'hims'
 });
 				
 con.connect(function(err){
@@ -32,7 +29,7 @@ const adminDetails = {
 }
 
 // set to true if installing for first time or to clear database
-const resetDatabase = false;
+const resetDatabase = true;
 
 //////////////// END OF CONFIGURATION /////////////////
 			
