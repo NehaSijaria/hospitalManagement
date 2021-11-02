@@ -48,33 +48,29 @@ UNLOCK TABLES;
 
 --
 -- Table structure for table `curr`
---
+-- node
 
-DROP TABLE IF EXISTS `curr`;
+
+
+
+-- Table structure for table `doctor`
+
+
+DROP TABLE IF EXISTS `employee`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `curr` (
-  `d_id` int(11) DEFAULT NULL,
-  `type` varchar(30) DEFAULT NULL,
-  `patients` int(11) DEFAULT NULL,
-  KEY `d_id` (`d_id`),
-  CONSTRAINT `curr_ibfk_1` FOREIGN KEY (`d_id`) REFERENCES `doctor` (`id`)
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `sex` varchar(10) NOT NULL,
+  `salary` double(12,2) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `contact` bigint(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `curr`
---
-
-LOCK TABLES `curr` WRITE;
-/*!40000 ALTER TABLE `curr` DISABLE KEYS */;
-INSERT INTO `curr` VALUES (1004,'Surgeon',3),(1009,'Surgeon',2),(1010,'Physician',2);
-/*!40000 ALTER TABLE `curr` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `doctor`
---
 
 DROP TABLE IF EXISTS `doctor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -99,25 +95,33 @@ INSERT INTO `doctor` VALUES (1004,'M.D','Surgeon',2),(1009,'asd','Surgeon',2),(1
 /*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 UNLOCK TABLES;
 
+DROP TABLE IF EXISTS `curr`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `curr` (
+  `d_id` int(11) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `patients` int(11) DEFAULT NULL,
+  KEY `d_id` (`d_id`),
+  CONSTRAINT `curr_ibfk_1` FOREIGN KEY (`d_id`) REFERENCES `doctor` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `curr`
+--
+
+LOCK TABLES `curr` WRITE;
+/*!40000 ALTER TABLE `curr` DISABLE KEYS */;
+INSERT INTO `curr` VALUES (1004,'Surgeon',3),(1009,'Surgeon',2),(1010,'Physician',2);
+/*!40000 ALTER TABLE `curr` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `employee`
 --
 
-DROP TABLE IF EXISTS `employee`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `employee` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `sex` varchar(10) NOT NULL,
-  `salary` double(12,2) NOT NULL,
-  `type` varchar(20) NOT NULL,
-  `contact` bigint(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `address` varchar(200) NOT NULL,
-  `city` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -342,12 +346,5 @@ LOCK TABLES `server` WRITE;
 INSERT INTO `server` VALUES ('hmanagerserver@gmail.com','hmanager','172.31.1.5:8080');
 /*!40000 ALTER TABLE `server` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+

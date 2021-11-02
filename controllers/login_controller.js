@@ -22,23 +22,32 @@ module.exports = function (app) {
 					return done(null, false, { message: 'Invalid Credentials! Please try again.' });
 				}
 				else {
-					//bcrypt.compare(password, user[0].password, function (err, res) {
-						//if (err) return done(err);
-					console.log("+password" + password);
-          console.log("pwd.user0" + user[0].password);
-          console.log(password == user[0].password);
-					if (password == user[0].password) {
-						
+					bcrypt.compare(password, user[0].password, function (err, res) {
+						if (err) return done(err);
+						if (res == true) {
               User.getUserType(username, function (err, res1) {
                 return done(null, res1[0]);
               });
-					} else {
-						console.log("else evalu")
+            } else {
               return done(null, false, {
                 message: "Invalid Credentials! Please try again.",
               });
             }
-					//});
+			// 		console.log("+password" + password);
+         //  console.log("pwd.user0" + user[0].password);
+         //  console.log(password == user[0].password);
+			// 		if (password == user[0].password) {
+						
+         //      User.getUserType(username, function (err, res1) {
+         //        return done(null, res1[0]);
+         //      });
+			// 		} else {
+			// 			console.log("else evalu")
+         //      return done(null, false, {
+         //        message: "Invalid Credentials! Please try again.",
+         //      });
+         //    }
+					});
 				}
 
 
