@@ -25,7 +25,7 @@ Hospital Management - It will supports most of the standard functionalities
 
 # INSTALL
 
-*[Link to github] https://github.com/sowjanyamaisagoni/hospitalManagement
+
 
 * `cd hospitalManagement`
 
